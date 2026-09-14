@@ -88,7 +88,9 @@ Swagger UI is enabled in Development mode and lists every implemented endpoint w
 4. Builds the solution in Release mode.
 5. Runs all unit tests and uploads the results as a build artifact.
 
-**CI/CD green build screenshot:** _[Insert screenshot of the successful green Actions run here before submission]_
+**CI/CD green build screenshot:** 
+<img width="1907" height="906" alt="Screenshot 2026-09-14 093130" src="https://github.com/user-attachments/assets/a9a5b0c3-80a5-4388-95a4-e1281bec23a7" />
+
 
 ## Video Presentation
 
