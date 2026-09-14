@@ -36,3 +36,6 @@ This API uses **server-side session state**, not JWT tokens, per the brief's exp
 
 1. `POST /api/auth/register` creates a user with a hashed password (PBKDF2-SHA256, random salt per user - see `Services/PasswordHasher.cs`). The password is never stored or logged in its original form.
 2. `POST /api/auth/login` verifies the password hash and, on success, writes `UserId` and `Role` into `HttpContext.Session`. ASP.NET Core issues a session cookie to the caller.
+3. Every subsequent request on that session automatically carries the cookie. Two action filters read the session on each request:
+   - `RequireAuthAttribute` - returns `401 Unauthorized` if there is no active session.
+   - `RequireRoleAttribute("Organiser")` / `RequireRoleAttribute("Participant")` - returns `403 Forbidden` if the session's role doesn't match.
