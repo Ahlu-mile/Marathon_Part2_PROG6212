@@ -39,3 +39,6 @@ This API uses **server-side session state**, not JWT tokens, per the brief's exp
 3. Every subsequent request on that session automatically carries the cookie. Two action filters read the session on each request:
    - `RequireAuthAttribute` - returns `401 Unauthorized` if there is no active session.
    - `RequireRoleAttribute("Organiser")` / `RequireRoleAttribute("Participant")` - returns `403 Forbidden` if the session's role doesn't match.
+4. Ownership checks (e.g. an organiser can only edit/delete their own events) are enforced in the controller itself by comparing the session's `UserId` to the resource's owner ID.
+
+This means Organiser functionality is never reachable by a Participant session and vice versa, and no endpoint other than register/login/public browsing is reachable without a session at all.
