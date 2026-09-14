@@ -42,3 +42,7 @@ This API uses **server-side session state**, not JWT tokens, per the brief's exp
 4. Ownership checks (e.g. an organiser can only edit/delete their own events) are enforced in the controller itself by comparing the session's `UserId` to the resource's owner ID.
 
 This means Organiser functionality is never reachable by a Participant session and vice versa, and no endpoint other than register/login/public browsing is reachable without a session at all.
+
+## Database (EF Core Code-First)
+
+`ApplicationDbContext` defines the same six entities as the Part 1 ERD - `Users`, `Events`, `Categories`, `Enrolments`, `Results`, `RouteInfo` - with the same primary keys, foreign keys, and constraints (unique email, CHECK constraints on `Role`/`EventType`/`Status`, unique participant+category enrolment, unique one-result-per-enrolment).
