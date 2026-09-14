@@ -100,10 +100,4 @@ The video demonstrates the running API via Swagger, explains the code structure,
 
 ---
 
-### Submission checklist
-- [ ] Push this project (with 20+ meaningful commits) to your assigned GitHub repository.
-- [ ] Run `dotnet ef database update` locally and confirm the schema matches your Part 1 ERD/SQL.
-- [ ] Confirm all unit tests pass locally with `dotnet test`.
-- [ ] Push to `main` and confirm the Actions workflow goes green - screenshot it into this README.
-- [ ] Record and upload your unlisted YouTube walkthrough - link it into this README.
-- [ ] Double check every endpoint is visible and testable in Swagger UI.
+
