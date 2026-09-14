@@ -52,3 +52,19 @@ This means Organiser functionality is never reachable by a Participant session a
 ### Prerequisites
 - **Visual Studio 2022** (17.8+) with the **ASP.NET and web development** workload, or the **.NET 8 SDK** + any editor.
 - **SQL Server** (LocalDB, Express, or Developer edition) - LocalDB ships with Visual Studio.
+
+### Steps
+1. Open `RaceDay.sln` in Visual Studio (or run everything below via the `dotnet` CLI from the repo root).
+2. Confirm the connection string in `RaceDay.API/appsettings.json` points at your SQL Server instance (the default targets LocalDB and needs no changes for most setups).
+3. Create the database from the EF Core models (Code-First):
+   ```bash
+   cd RaceDay.API
+   dotnet tool install --global dotnet-ef   # first time only
+   dotnet ef migrations add InitialCreate
+   dotnet ef database update
+   ```
+4. Run the API:
+   ```bash
+   dotnet run
+   ```
+5. Open the Swagger UI (it launches automatically in Development mode) at `https://localhost:7080/swagger` to see and test every endpoint.
