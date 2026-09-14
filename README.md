@@ -46,3 +46,9 @@ This means Organiser functionality is never reachable by a Participant session a
 ## Database (EF Core Code-First)
 
 `ApplicationDbContext` defines the same six entities as the Part 1 ERD - `Users`, `Events`, `Categories`, `Enrolments`, `Results`, `RouteInfo` - with the same primary keys, foreign keys, and constraints (unique email, CHECK constraints on `Role`/`EventType`/`Status`, unique participant+category enrolment, unique one-result-per-enrolment).
+
+## Running the API Locally
+
+### Prerequisites
+- **Visual Studio 2022** (17.8+) with the **ASP.NET and web development** workload, or the **.NET 8 SDK** + any editor.
+- **SQL Server** (LocalDB, Express, or Developer edition) - LocalDB ships with Visual Studio.
