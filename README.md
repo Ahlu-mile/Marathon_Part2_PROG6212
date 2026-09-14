@@ -68,3 +68,34 @@ This means Organiser functionality is never reachable by a Participant session a
    dotnet run
    ```
 5. Open the Swagger UI (it launches automatically in Development mode) at `https://localhost:7080/swagger` to see and test every endpoint.
+
+### Running the Unit Tests
+```bash
+dotnet test RaceDay.sln
+```
+Tests use an EF Core **InMemory** database (via `CustomWebApplicationFactory`), so they run without needing a real SQL Server connection - this is also what lets them run inside GitHub Actions.
+
+## Swagger
+
+Swagger UI is enabled in Development mode and lists every implemented endpoint with its expected request body and response, generated directly from the controllers' XML doc comments and DTO attributes - this is your live proof that the built API matches the Part 1 plan.
+
+## CI/CD
+
+`.github/workflows/ci-part2.yml` runs on every push to `main`:
+1. Checks out the repository.
+2. Installs the .NET 8 SDK.
+3. Restores NuGet packages.
+4. Builds the solution in Release mode.
+5. Runs all unit tests and uploads the results as a build artifact.
+
+**CI/CD green build screenshot:** 
+<img width="1907" height="906" alt="Screenshot 2026-09-14 093130" src="https://github.com/user-attachments/assets/014ed28b-a3da-4de3-86bc-6e20782c90f8" />
+
+
+## Video Presentation
+
+**YouTube (unlisted) link:** _[Insert your unlisted YouTube link here]_
+
+The video demonstrates the running API via Swagger, explains the code structure, walks through authentication and session-based role enforcement, and shows the unit tests passing.
+
+---
